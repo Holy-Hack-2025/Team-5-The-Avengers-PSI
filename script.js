@@ -106,7 +106,7 @@ class AudioVisualizer {
   
     visualElements = document.querySelectorAll('main div');
   };
-  
+
   const init = () => {
     // Create initial DOM elements
     const audioContext = new AudioContext();
@@ -115,10 +115,10 @@ class AudioVisualizer {
       createDOMElements();
     };
     initDOM();
-  
+
     // Swapping values around for a better visual effect
     const dataMap = { 0: 15, 1: 10, 2: 8, 3: 9, 4: 6, 5: 5, 6: 2, 7: 1, 8: 0, 9: 4, 10: 3, 11: 7, 12: 11, 13: 12, 14: 13, 15: 14 };
-  
+
     const processFrame = (data) => {
       const values = Object.values(data);
       for (let i = 0; i < visualValueCount; ++i) {
@@ -128,12 +128,12 @@ class AudioVisualizer {
         elmStyles.opacity = Math.max(0.25, value);
       }
     };
-  
+
     const processError = () => {
       visualMainElement.classList.add('error');
       visualMainElement.innerText = 'Please allow access to your microphone in order to see this demo.\nNothing bad is going to happen... hopefully :P';
     };
-  
+
     const a = new AudioVisualizer(audioContext, processFrame, processError);
   };
   
@@ -144,7 +144,9 @@ class AudioVisualizer {
       console.log("Visualizer stopped");
     }
   };
-  
+
+
+
 
  
   

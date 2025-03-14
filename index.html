@@ -55,17 +55,17 @@
                         </div>
                     
                         <!-- State 3: Option Buttons (Stop & Send) -->
-                        <div class="state" id="state-options">
+                        <div class="state" id="state-options" >
                           <div class="options-container">
                             <!-- Stop Button -->
-                            <div class="outer-circle" id="resetBtn" >
+                            <div class="outer-circle" id="resetBtn" onclick="stopVisualizer()">
                               <div class="icon">
                                 <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="1.302"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
                                
                             </div>
                             </div>
                             <!-- Send Button -->
-                            <div class="outer-circle" id="continueBtn" onclick="init()">
+                            <div class="outer-circle" id="continueBtn">
                               <div class="icon">
                                 <svg fill="#000000" viewBox="0 0 24 24" id="stop" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="primary" x="2" y="2" width="20" height="20" rx="2" style="fill: #000000;"></rect></g></svg>
                                  </div>
@@ -99,6 +99,40 @@
                     optionsContainer.classList.add('split');
                   }, 50);
                 });
+                        const resetBtn = document.getElementById('resetBtn');
+
+                        resetBtn.addEventListener('click', () => {
+                            // Stop the visualizer
+                            if (window.audioVisualizerInstance) {
+                                window.audioVisualizerInstance.stop();
+                                window.audioVisualizerInstance = null; // Clear the stored instance
+                            }
+
+                            // Reset UI states
+                            stateOptions.classList.remove('active');
+                            statePause.classList.remove('active');
+                            stateRecord.classList.add('active'); // Show record button again
+
+                            console.log("Visualizer reset to initial state");
+                        });
+                        const continueBtn = document.getElementById('continueBtn');
+
+                        continueBtn.addEventListener('click', () => {
+                            if (window.audioVisualizerInstance) {
+                                window.audioVisualizerInstance.stop();
+                                window.audioVisualizerInstance = null; // Clear the stored instance
+                            }
+                            // Restart visualization
+                            init(); // This function initializes the visualizer
+
+                            // Transition back to recording state
+                            stateOptions.classList.remove('active');
+                            stateRecord.classList.remove('active');
+                            statePause.classList.add('active'); // Show pause button
+
+                            console.log("Resumed recording");
+                        });
+
                       </script>
             
             
