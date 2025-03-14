@@ -1,0 +1,158 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    margin: 0;
+}
+
+/* Upload Container */
+.upload-container {
+    width: 500px;
+    padding: 20px;
+    background: #1e1e1e;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Drag & Drop Area */
+.drop-area {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #555;
+    border-radius: 8px;
+    background: #2a2a2a;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #bbb;
+}
+
+/* Highlight Drop Area */
+.drop-area.highlight {
+    border-color: #007bff;
+    background: #3a3a3a;
+}
+
+/* Hidden File Input */
+input[type="file"] {
+    display: none;
+}
+
+/* Paperclip Icon Button */
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+/* File List Container */
+#file-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+/* File Item Box */
+.file-item {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 15px;
+    min-width: 250px;
+    max-width: 350px;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Preview */
+.file-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* File Icon for Non-Image Files */
+.file-icon {
+    width: 45px;
+    height: 45px;
+    background: #ff5678;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.file-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+/* File Details */
+.file-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* File Name */
+.file-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* File Type */
+.file-type {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Remove Button (X) */
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}

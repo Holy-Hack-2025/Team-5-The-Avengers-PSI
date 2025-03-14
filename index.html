@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAGE.AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+
+</head>
+<body>
+    <img src="assets/logo.png" alt="Top Left Logo" class="logo-top-left" id="logo-top-left">
+    <img src="assets/bigl.png" alt="Centered Logo" class="logo-center" id="logo-center">
+    <img src="assets/image.png" alt="profile Logo" class="logo-top-right" id="logo-right">
+    <div class="sage-ai" id="sage-ai">SAGE.AI</div>
+    <div class="slogan" id="slogan">Animate, Educate</div>
+
+    <div class="view" id="view">
+        <div class="test-content">
+            <div class="section">
+                <main>
+                    
+                </main>
+                <div class="Len">
+        
+                    <div class="settings">
+                    <!-- recognizer -->
+                    <div class="Voice_recognizer">
+                        
+                    </div>
+                    
+                    
+                    <!-- Record and send button -->
+                    <div class="three_button_array">
+                        <!-- State 1: Record Button -->
+                        <div class="state active" id="state-record" onclick="init()">
+                          <div class="outer-circle" id="recordBtn">
+                            <div class="inner-circle"></div>
+                          </div>
+                        </div>
+                    
+                        <!-- State 2: Pause Button -->
+                        <div class="state" id="state-pause" >
+                          <div class="outer-circle" id="pauseBtn" onclick="stopVisualizer()">
+                            <div class="icon">
+                              <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.92 24.096q0 0.832 0.576 1.408t1.44 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.44 0.576t-0.576 1.44v16.16zM18.016 24.096q0 0.832 0.608 1.408t1.408 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.408 0.576t-0.608 1.44v16.16z"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                    
+                        <!-- State 3: Option Buttons (Stop & Send) -->
+                        <div class="state" id="state-options">
+                          <div class="options-container">
+                            <!-- Stop Button -->
+                            <div class="outer-circle" id="resetBtn" >
+                              <div class="icon">
+                                <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="1.302"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
+                               
+                            </div>
+                            </div>
+                            <!-- Send Button -->
+                            <div class="outer-circle" id="continueBtn" onclick="init()">
+                              <div class="icon">
+                                <svg fill="#000000" viewBox="0 0 24 24" id="stop" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="primary" x="2" y="2" width="20" height="20" rx="2" style="fill: #000000;"></rect></g></svg>
+                                 </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                      <script>
+                        const stateRecord = document.getElementById('state-record');
+                const statePause = document.getElementById('state-pause');
+                const stateOptions = document.getElementById('state-options');
+                
+                // Get buttons
+                const recordBtn = document.getElementById('recordBtn');
+                const pauseBtn = document.getElementById('pauseBtn');
+                
+                // Transition: Record button -> Pause button
+                recordBtn.addEventListener('click', () => {
+                  stateRecord.classList.remove('active');
+                  statePause.classList.add('active');
+                });
+                
+                // Transition: Pause button -> Option buttons with split animation
+                pauseBtn.addEventListener('click', () => {
+                  statePause.classList.remove('active');
+                  stateOptions.classList.add('active');
+                  // After a short delay, add the 'split' class to trigger the animation
+                  const optionsContainer = document.querySelector('.options-container');
+                  setTimeout(() => {
+                    optionsContainer.classList.add('split');
+                  }, 50);
+                });
+                      </script>
+            
+            
+                    <!-- The sliders   -->
+                    <div class="slider_holder">
+                        <p>complexity</p> <br>
+                        <div class="complexity">
+                            <p>novice</p>
+                            <div class="range">
+                                <input type="range" min="0" max="100" value="0" id="range" /> 
+                               
+                              </div>
+                            <p>expert</p>
+                        </div>
+                    </div>
+            
+                    <div class="slider_holder">
+                        <p>style</p>
+                        <div class="style">
+                            <p>creative</p>
+                            <div class="range">
+                                <input type="range" min="0" max="100" value="0" id="range" /> 
+                               
+                              </div>
+                            <p>technical</p>
+                        </div>
+                    </div>
+            
+                    <!-- advanced features -->
+                    
+                    <div class="advanced_settings">
+                        <div class="container">
+                            <div class="summary">
+                                <div class="triangle"></div>
+                                <p>advanced settings</p>
+                                
+                            </div>
+                            <div class="hidden">
+                                <div class="length">
+                                    <p>approximate duration</p>
+                                    <input type="text" name="time" id="">
+                                </div>
+                                <div class="divider_horizontal"></div>
+                                <div class="style_document">
+                                    <div class="length">
+                                        <p>style document</p>
+                                        <div class="PDF_uplpader_style"><div class="drop-area" id="drop-area">
+                                            <p>Drag & Drop your files here</p>
+                                            <input type="file" id="fileInput" multiple>
+                                            <label for="fileInput" class="upload-label">📎</label>
+                                          </div>
+                                          <div id="file-list"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <main>
+                            <button id = "generateButton" onclick="loading()">generate</button>
+                        </main>
+                      
+                        <div id="loadingScreen" class="loading-screen" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <h1 style="color: white; font-size: 1.5em; margin-top: 25px; margin-left: 20px;">Loading...</h1>
+                            </div>
+                        
+                          <!-- Initially hide the video player -->
+                          <video id="player" class="video-js vjs-lime" controls playsinline preload="auto" style="display: none;">
+                            
+                            <source src="assets/psivid.mp4" type="video/mp4">
+                          </video>
+                    
+                        <script>
+                            const container = document.querySelector('.container');
+                            const hiddenContent = container.querySelector('.hidden');
+                            const triangle = container.querySelector('.triangle');
+                            const summary = container.querySelector('.summary');
+                        
+                            summary.addEventListener('click', () => {
+                                container.classList.toggle('open');
+                                if (container.classList.contains('open')) {
+                                    hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
+                                    triangle.style.transform = 'rotate(0deg)';
+                                } else {
+                                    hiddenContent.style.maxHeight = '0';
+                                    triangle.style.transform = 'rotate(-90deg)';
+                                }
+                            });
+                        
+                            hiddenContent.addEventListener('click', (event) => {
+                                event.stopPropagation();
+                            });
+                        </script>
+                    
+                        <style>
+                            .container {
+                                cursor: pointer;
+                                display: grid;
+                                transition: 150ms ease;
+                                grid-template-rows: auto 0;
+                            }
+                            .open {
+                                grid-template-rows: auto auto;
+                            }
+                            .hidden {
+                                overflow: hidden;
+                                max-height: 0;
+                                transition: max-height 0.3s ease;
+                            }
+                            .triangle {
+                                display: inline-block;
+                                width: 0;
+                                height: 0;
+                                transform: rotate(-90deg);
+                                margin-right: 20px;
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-top: 5px solid black;
+                                transition: transform 0.3s ease;
+                            }
+                        </style>
+                    </div>
+                    </div>  
+                    <div class="divider_vertical"></div>
+                    <!-- PDFs -->
+                    <div class="PDF uplpader"></div>
+                   
+                </div>
+                
+                
+                
+            </div>
+        
+            <div class="section">
+                <h2>Section 2</h2>
+                <p>This section has more content to make the page longer. Keep scrolling to see more content.</p>
+                <div class="range">
+                    <input type="range" min="0" max="100" value="0" id="range" /> 
+                   
+                  </div>
+            </div>
+        
+            <div class="section">
+                <h2>Section 3</h2>
+                <p>This is another section with more information. Scroll down for more sections.</p>
+
+                
+              
+               
+            </div>
+              
+        
+            <div class="section">
+                <h2>Section 4</h2>
+                <p>This section contains filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit orci eu nunc cursus, at blandit turpis bibendum.</p>
+                
+               
+             </div>
+        
+            <div class="section">
+                <h2>Section 5</h2>
+                <p>Here we add some more content with random text to increase the length of the page. Sed vehicula, lorem sit amet pretium aliquet, purus nunc tristique arcu, eu venenatis dui ante non nunc.</p>
+            </div>
+        
+            <div class="section">
+                <h2>Section 6</h2>
+                <p>More text, just to fill the page and give us a long scrolling experience. Nulla facilisi. Integer sit amet dolor quis arcu auctor volutpat.</p>
+            </div>
+        
+            <div class="section">
+                <h2>Section 7</h2>
+                <p>This section continues to add length to the page. Aliquam erat volutpat. Vivamus non tortor nec nisi tincidunt malesuada.</p>
+            </div>
+        
+            <div class="section">
+                <h2>Section 8</h2>
+                <p>This section contains some random content, including an image, to further extend the page's length.</p>
+                <img src="https://via.placeholder.com/800x300" alt="Sample Image" class="sample-image">
+            </div>
+        
+            <div class="section">
+                <h2>Section 9</h2>
+                <p>Here is another section with a little more content. Cras tristique, neque sit amet dictum venenatis, urna nulla hendrerit metus, in tempus dui erat at orci.</p>
+            </div>
+        
+            <div class="section">
+                <h2>Section 10</h2>
+                <p>Finally, the last section of content. Donec egestas dui ac felis dignissim, et pharetra justo gravida. Aenean accumsan velit et sem convallis, id feugiat velit varius.</p>
+            </div>
+        
+            <div class="section">
+                <h2>Section 11 - Final</h2>
+                <p>This is the final section of the page. Congratulations, you've reached the bottom! Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        
+        </div>
+        
+        <!-- Your new page content goes here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

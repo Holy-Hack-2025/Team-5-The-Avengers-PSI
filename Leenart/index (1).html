@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>Sage.Ai</title>
+</head>
+<body>
+    
+    <header>
+        <!--take over from Emil -->
+        <!--logo -->
+        <div class="logo">
+            <img src="" alt="logo">
+        </div>
+
+        <!--top center -->
+        <div class="top-center">
+            <h1>title</h1>
+     
+        </div>
+
+        <div class="profile">
+            <img src="" alt="profile">
+        </div>
+    </header>
+
+
+    <main>
+        
+        <div class="settings">
+        <!-- recognizer -->
+        <div class="Voice_recognizer">
+            
+        </div>
+        
+        
+        <!-- Record and send button -->
+        <div class="three_button_array">
+            <!-- State 1: Record Button -->
+            <div class="state active" id="state-record">
+              <div class="outer-circle" id="recordBtn">
+                <div class="inner-circle"></div>
+              </div>
+            </div>
+        
+            <!-- State 2: Pause Button -->
+            <div class="state" id="state-pause">
+              <div class="outer-circle" id="pauseBtn">
+                <div class="icon">
+                  <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.92 24.096q0 0.832 0.576 1.408t1.44 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.44 0.576t-0.576 1.44v16.16zM18.016 24.096q0 0.832 0.608 1.408t1.408 0.608h4.032q0.832 0 1.44-0.608t0.576-1.408v-16.16q0-0.832-0.576-1.44t-1.44-0.576h-4.032q-0.832 0-1.408 0.576t-0.608 1.44v16.16z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+        
+            <!-- State 3: Option Buttons (Stop & Send) -->
+            <div class="state" id="state-options">
+              <div class="options-container">
+                <!-- Stop Button -->
+                <div class="outer-circle" id="resetBtn">
+                  <div class="icon">
+                    <svg viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="1.302"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8"></path> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)"></path> </g> </g></svg>
+                   
+                </div>
+                </div>
+                <!-- Send Button -->
+                <div class="outer-circle" id="continueBtn">
+                  <div class="icon">
+                    <svg fill="#000000" viewBox="0 0 24 24" id="stop" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="primary" x="2" y="2" width="20" height="20" rx="2" style="fill: #000000;"></rect></g></svg>
+                     </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <script>
+            const stateRecord = document.getElementById('state-record');
+    const statePause = document.getElementById('state-pause');
+    const stateOptions = document.getElementById('state-options');
+    
+    // Get buttons
+    const recordBtn = document.getElementById('recordBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    
+    // Transition: Record button -> Pause button
+    recordBtn.addEventListener('click', () => {
+      stateRecord.classList.remove('active');
+      statePause.classList.add('active');
+    });
+    
+    // Transition: Pause button -> Option buttons with split animation
+    pauseBtn.addEventListener('click', () => {
+      statePause.classList.remove('active');
+      stateOptions.classList.add('active');
+      // After a short delay, add the 'split' class to trigger the animation
+      const optionsContainer = document.querySelector('.options-container');
+      setTimeout(() => {
+        optionsContainer.classList.add('split');
+      }, 50);
+    });
+          </script>
+
+
+        <!-- The sliders   -->
+        <div class="slider_holder">
+            <p>complexity</p> <br>
+            <div class="complexity">
+                <p>novice</p>
+                <input type="range" name="" id="">
+                <p>expert</p>
+            </div>
+        </div>
+
+        <div class="slider_holder">
+            <p>style</p>
+            <div class="style">
+                <p>creative</p>
+                <input type="range" name="" id="">
+                <p>technical</p>
+            </div>
+        </div>
+
+        <!-- advanced features -->
+        
+        <div class="advanced_settings">
+            <div class="container">
+                <div class="summary">
+                    <div class="triangle"></div>
+                    <p>advanced settings</p>
+                    
+                </div>
+                <div class="hidden">
+                    <div class="length">
+                        <p>approximate duration</p>
+                        <input type="text" name="time" id="">
+                    </div>
+                    <div class="divider_horizontal"></div>
+                    <div class="style_document">
+                        <div class="length">
+                            <p>style document</p>
+                            <div class="PDF_uplpader_style"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                const container = document.querySelector('.container');
+                const hiddenContent = container.querySelector('.hidden');
+                const triangle = container.querySelector('.triangle');
+                const summary = container.querySelector('.summary');
+            
+                summary.addEventListener('click', () => {
+                    container.classList.toggle('open');
+                    if (container.classList.contains('open')) {
+                        hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
+                        triangle.style.transform = 'rotate(0deg)';
+                    } else {
+                        hiddenContent.style.maxHeight = '0';
+                        triangle.style.transform = 'rotate(-90deg)';
+                    }
+                });
+            
+                hiddenContent.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
+            </script>
+        
+            <style>
+                .container {
+                    cursor: pointer;
+                    display: grid;
+                    transition: 150ms ease;
+                    grid-template-rows: auto 0;
+                }
+                .open {
+                    grid-template-rows: auto auto;
+                }
+                .hidden {
+                    overflow: hidden;
+                    max-height: 0;
+                    transition: max-height 0.3s ease;
+                }
+                .triangle {
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    transform: rotate(-90deg);
+                    margin-right: 20px;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid black;
+                    transition: transform 0.3s ease;
+                }
+            </style>
+        </div>
+        </div>  
+        <div class="divider_vertical"></div>
+        <!-- PDFs -->
+        <div class="PDF uplpader"></div>
+       
+    </main>
+
+
+
+    <footer>
+
+
+    </footer>
+</body>
+</html>

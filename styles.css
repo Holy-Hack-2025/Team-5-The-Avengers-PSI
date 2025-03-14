@@ -1,0 +1,742 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    padding: 0;
+}
+
+/* Upload Container */
+
+.logo-top-left, .logo-center, .sage-ai, .slogan {
+    transition: 
+        transform 1.8s cubic-bezier(0.57, 0, 0.11, 1.12),
+        opacity 1.2s ease-out, 
+        filter 3s ease-out;
+}
+.Len{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    gap: 30px;
+}
+
+.logo-top-left {
+    position: fixed;
+    top: 13px;
+    left: 13px;
+    width: 140px;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+.logo-top-right {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    width: 65px;
+    height: 65px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    
+    /* Create a circular border */
+    border: 2px solid rgba(255, 255, 255, 0.642); /* Adjust thickness and color */
+    border-radius: 50%; /* Ensures the border is circular */
+    padding: 5px; /* Space between the image and border */
+    
+    /* Optional: Add a glow or shadow effect */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    
+    /* Ensures it remains a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black; /* Match the background or set a contrast */
+}
+
+
+.logo-center {
+    width: 1000px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-47%);
+}
+
+.sage-ai {
+    position: absolute;
+    bottom: 100px;
+    left: 110px;
+    font-size: 165px;
+    font-weight: bold;
+    font-family: 'Arial';
+    z-index: 2;
+}
+
+.slogan {
+    position: absolute;
+    bottom: 70px;
+    left: 120px;
+    font-size: 38px;
+    font-weight: normal;
+    font-family: 'Arial Narrow', sans-serif;
+    z-index: 1;
+}
+
+.view {
+    opacity: 0; /* Start with 0 opacity */
+    transition: opacity 1s ease-out; /* Fade-in transition */
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    margin-top: 150px;
+    padding: 0;
+} /* Optional: Add a background color */
+
+.test-content {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 50px; /* To add space at the bottom of the page */
+}
+
+h1 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.section {
+    background-color: #f0f0f000;
+    padding: 20px;
+    margin: 15px auto;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    opacity: 0.3; /* Default opacity */
+    transform: scale(0.95) translateZ(0); /* Default scale */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth opacity and transform transition */
+}
+
+@keyframes appear {
+    from {
+      opacity: 0;
+   /* Start from left */
+    }
+    to {
+      opacity: 1;
+    /* End at original position */
+    }
+  }
+h2 {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.sample-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5em;
+  height: 2em;
+  margin-left: -2.5em;
+  margin-top: -1em;
+  z-index: 100;
+  
+  padding: .25em .5em;
+  color: #ffffff;
+  background: #000;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.15em;
+  font-weight: 200;
+  box-shadow: 0 0 10px rgba( 255, 255, 255, .5 );
+  transition: box-shadow .5s;
+  
+  &:hover {
+    box-shadow: 0 0 30px 5px rgba( 255, 255, 255, .75 );
+  }
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  > div {
+    display: inline-block;
+    width: 3px;
+    height: 100px;
+    margin: 0 7px;
+    background: currentColor;
+    transform: scaleY( .5 );
+    opacity: .25;
+  }
+  
+  &.error {
+    color: #f7451d;
+    min-width: 20em;
+    max-width: 30em;
+    margin: 0 auto;
+    white-space: pre-line;
+  }
+}
+
+input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    /*  overflow: hidden;  remove this line*/
+    
+    /* New additions */
+    height: 6px;
+    background: #ccc;
+  }
+
+
+  
+  /* Thumb: webkit */
+  input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: #b9b9b9;
+    border-radius: 50%;
+    border: none;
+  
+    /* box-shadow: -407px 0 0 400px #f50; emove this line */
+    transition: .2s ease-in-out;
+  }
+  
+  /* Thumb: Firefox */
+  input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: #b9b9b9;
+    border-radius: 50%;
+    border: none;
+    
+    /* box-shadow: -407px 0 0 400px #f50; emove this line */
+    transition: .2s ease-in-out;
+  }
+  
+  /* Hover, active & focus Thumb: Webkit */
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, 0)
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0)
+  }
+  input[type="range"]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0)
+  }
+  
+  /* Hover, active & focus Thumb: Firfox */
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, 0)
+  }
+  input[type="range"]:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0)
+  }
+  input[type="range"]:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0)    
+  }
+  
+
+/* Container for the video */
+.video-container {
+    width: 100%; /* Ensure the container takes full width */
+    max-width: 100%; /* Prevent overflow */
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+    overflow: hidden; /* Prevent the video from overflowing */
+  }
+  
+  #player {
+    width: 100%; /* Make the video fill the container width */
+    max-width: 100%; /* Ensure it does not exceed container width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Optional: for rounded corners */
+  }
+  
+  .loading-screen {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's above other elements */
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #5e7a5f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite; /* This applies the spin animation */
+  }
+  
+
+/* Drag & Drop Area */
+.drop-area {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #555;
+    border-radius: 8px;
+    background: #2a2a2a;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #bbb;
+}
+
+/* Highlight Drop Area */
+.drop-area.highlight {
+    border-color: #007bff;
+    background: #3a3a3a;
+}
+
+/* Hidden File Input */
+input[type="file"] {
+    display: none;
+}
+
+/* Paperclip Icon Button */
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+/* File List Container */
+#file-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+/* File Item Box */
+.file-item {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 15px;
+    min-width: 250px;
+    max-width: 350px;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Preview */
+.file-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* File Icon for Non-Image Files */
+.file-icon {
+    width: 45px;
+    height: 45px;
+    background: #ff5678;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.file-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+/* File Details */
+.file-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* File Name */
+.file-name {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* File Type */
+.file-type {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Remove Button (X) */
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align child elements to the left */
+    
+    font-family: Poppins;
+    gap: 30px;
+    margin: 0 auto; /* Center the .settings div */
+}
+
+.three_button_array{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.slider_holder{
+    letter-spacing: 3px;
+}
+.summary{
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Ensure items are aligned */
+}
+.complexity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    letter-spacing: 3px;
+    
+} 
+.style{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+}
+.divider_horizontal {
+    border: none; /* Remove default styling */
+    width: 1px; /* Thin line */
+    background-color: black; /* Line color */
+    height: 100%; /* Stretch across the container */
+    margin: 20px 0; /* Add space above & below */
+    margin-top: 20px;
+}
+.divider_vertical {
+    border: none; /* Remove default styling */
+    height: 1px; /* Thin line */
+    background-color: black; /* Line color */
+    width: 300%; /* Stretch across the container */
+    margin: 20px 0px; /* Add space above & below */
+    margin-top: 20px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+}
+
+.hidden{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button_wrapper div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button_wrapper div:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button_wrapper div:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button_wrapper .record_or_pause {
+    position: absolute;
+}
+
+.button_wrapper .reset,
+.button_wrapper .continue,
+.button_wrapper .send {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.button_wrapper.open .reset,
+.button_wrapper.open .continue,
+.button_wrapper.open .send {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.button_wrapper.open .reset {
+    left: -120px;
+}
+
+.button_wrapper.open .continue {
+    right: -120px;
+}
+
+.button_wrapper.open .send {
+    /* top: -60px; */
+}
+
+/* .button_wrapper .record_or_pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .button_wrapper svg {
+    width: 100%;
+    height: 100%;
+  }
+  .button_wrapper .record_or_pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .button_wrapper svg {
+    width: 100%;
+    height: 100%;
+  } */
+      
+
+  /* Outer white circle with drop shadow */
+  .outer-circle {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Inner smaller black circle */
+  .inner-circle {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .three_button_array {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .state {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .state.active {
+    display: flex;
+  }
+  /* Common button (outer circle) styling */
+  .outer-circle {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* Record button inner circle */
+  .inner-circle {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  /* Icon styling for pause/option buttons */
+  .icon {
+    width: 80px;
+    height: 80px;
+  }
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  /* Options container for state 3 */
+  .options-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  /* Initially, both option buttons are centered with reduced scale & invisible */
+  .options-container .outer-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  /* When the 'split' class is added, animate the buttons outward */
+  .options-container.split #resetBtn {
+    transform: translate(calc(-50% - 120px), -50%) scale(1);
+    opacity: 1;
+  }
+  .options-container.split #continueBtn {
+    transform: translate(calc(-50% + 120px), -50%) scale(1);
+    opacity: 1;
+  }
