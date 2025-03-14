@@ -129,5 +129,3 @@ curl -X POST "https://api.segmind.com/v1/merge" \
 
 ---
 
-This README provides an overview of the API workflow, including the flow of data, API calls, and integration details. Let us know if you'd like any refinements! 🚀
-
