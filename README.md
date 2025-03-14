@@ -2,7 +2,7 @@
 
 This project utilizes multiple generative AI services to summarize files into an engaging video format with voice-over narration. The system ingests various inputs, processes them with AI models, and composes the final output.
 
-## 📌 Workflow Overview
+## Workflow Overview
 
 1. **Input Collection**
 
@@ -27,7 +27,7 @@ This project utilizes multiple generative AI services to summarize files into an
 
    - **Merging Sound and Video**: Uses [Segmind](https://segmind.com/) to combine the AI-generated visuals and narration into a final, cohesive video
 
-## 📡 API Flow Diagram
+## API Flow Diagram
 
 ```plaintext
 +------------+       +------------+       +----------+       +---------+
@@ -48,19 +48,7 @@ This project utilizes multiple generative AI services to summarize files into an
   +----------+       +---------+
 ```
 
-## 🛠️ API Endpoints
-
-| API Service     | Purpose             | Input                           | Output                           |
-| --------------- | ------------------- | ------------------------------- | -------------------------------- |
-| **Apache Tika** | File Parsing        | PDF, DOCX, TXT, etc.            | Extracted text                   |
-| **Ninja API**   | Content Processing  | Extracted text                  | Cleaned, structured content      |
-| **Vosk**        | Speech-to-Text      | Audio file                      | Transcribed text                 |
-| **OpenAI**      | Prompt Generation   | Text content + user preferences | Summarized script & video prompt |
-| **RunwayML**    | AI Video Generation | Video prompt                    | AI-generated video               |
-| **Eleven Labs** | Voice Generation    | Narration script                | AI-generated speech              |
-| **Segmind**     | Video-Sound Merging | Video + Audio                   | Final video output               |
-
-## 🛠️ Sample API Calls
+## Sample API Calls
 
 ### 1. Extract Text from File using Apache Tika
 
