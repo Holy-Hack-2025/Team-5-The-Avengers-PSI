@@ -108,12 +108,4 @@ curl -X POST "https://api.segmind.com/v1/merge" \
      -d '{ "video": "video_url", "audio": "audio_url" }'
 ```
 
-## 🛠️ Usage
-
-1. Upload a file or provide an audio recording.
-2. Select summarization style preferences on the web interface.
-3. The system processes inputs and generates a video summary with narration.
-4. Download or view the final AI-generated video.
-
----
 
