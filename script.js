@@ -32,6 +32,15 @@ window.onload = function() {
 
     }, 1300); // Delay before starting the animation
 };
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton"); // Add your actual button ID
+    const container = document.querySelector(".hidden");
+
+    toggleButton.addEventListener("click", () => {
+        container.classList.toggle("inactive");
+    });
+});
+
 
 class AudioVisualizer {
     constructor(audioContext, processFrame, processError) {

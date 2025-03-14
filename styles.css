@@ -353,58 +353,58 @@ input[type="range"] {
   
 
 /* Drag & Drop Area */
+/* Drag & Drop Area */
+/* Drop Area - Smaller and Centered */
+/* Adjust the drop area to fit better */
 .drop-area {
     width: 100%;
-    padding: 20px;
-    border: 2px dashed #555;
-    border-radius: 8px;
-    background: #2a2a2a;
-    transition: all 0.3s;
-    cursor: pointer;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: #bbb;
+    max-width: 250px; /* Make sure it fits within container */
+    padding: 5px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(42, 42, 42, 0.9);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Highlight Drop Area */
+/* Highlight Drop Area when dragging a file */
 .drop-area.highlight {
     border-color: #007bff;
-    background: #3a3a3a;
-}
-
-/* Hidden File Input */
-input[type="file"] {
-    display: none;
+    background: rgba(58, 58, 58, 0.95);
+    transform: scale(1.03);
 }
 
 /* Paperclip Icon Button */
 .upload-label {
+    background: #007bff;
+    color: white;
+    padding: 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
 }
 
-/* File List Container */
+.upload-label:hover {
+    background: #0056b3;
+}
+
+/* File List - Positioned Directly Below Drop Area */
 #file-list {
-    margin-top: 15px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     padding: 10px;
-    border-radius: 10px;
-    background: transparent;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* File Item Box */
@@ -412,39 +412,35 @@ input[type="file"] {
     display: flex;
     align-items: center;
     background: #2a2a2a;
-    padding: 10px 15px;
-    border-radius: 15px;
-    min-width: 250px;
-    max-width: 350px;
+    padding: 4px 6px;
+    border-radius: 10px;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     position: relative;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.2);
+    max-width: 280px;
 }
 
 /* Image Preview */
 .file-item img {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     object-fit: cover;
-    border-radius: 50%;
-    margin-right: 15px;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 
 /* File Icon for Non-Image Files */
 .file-icon {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     background: #ff5678;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.file-icon i {
-    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
     color: white;
 }
 
@@ -464,23 +460,23 @@ input[type="file"] {
 
 /* File Type */
 .file-type {
-    font-size: 12px;
+    font-size: 10px;
     color: #aaa;
 }
 
-/* Remove Button (X) */
+/* Remove Button */
 .remove-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -489,6 +485,7 @@ input[type="file"] {
 .remove-btn:hover {
     background: rgba(255, 255, 255, 0.5);
 }
+
 .settings {
     display: flex;
     flex-direction: column;
@@ -550,13 +547,33 @@ input[type="file"] {
     margin-right: 50px; */
 }
 
-.hidden{
+/* Ensure the hidden container expands dynamically */
+.hidden {
     display: flex;
-    flex-direction: row;
-    gap: 60px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 15px;
+    padding: 0;
+    border-radius: 10px;
+    background: rgba(50, 50, 50, 0.9);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+
+    /* Ensure proper sizing */
+    width: 100%;
+    max-width: 600px; /* Adjust width as needed */
+    overflow: hidden; /* Prevent unwanted overflow */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
+
+/* Adjust max-height when expanding */
+.container.open .hidden {
+    max-height: 600px; /* Increase as needed */
+}
+
+
+
+
 
 .button_wrapper {
     display: flex;
@@ -740,3 +757,37 @@ input[type="file"] {
     transform: translate(calc(-50% + 120px), -50%) scale(1);
     opacity: 1;
   }
+.length {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    max-width: 250px;
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(42, 42, 42, 0.9);
+    box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Style for text input inside .length */
+.length input[type="text"] {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.length input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+

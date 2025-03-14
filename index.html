@@ -205,25 +205,29 @@
                           </video>
                     
                         <script>
-                            const container = document.querySelector('.container');
-                            const hiddenContent = container.querySelector('.hidden');
-                            const triangle = container.querySelector('.triangle');
-                            const summary = container.querySelector('.summary');
-                        
-                            summary.addEventListener('click', () => {
-                                container.classList.toggle('open');
-                                if (container.classList.contains('open')) {
-                                    hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px';
-                                    triangle.style.transform = 'rotate(0deg)';
-                                } else {
-                                    hiddenContent.style.maxHeight = '0';
-                                    triangle.style.transform = 'rotate(-90deg)';
-                                }
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const container = document.querySelector('.container');
+                                const hiddenContent = container.querySelector('.hidden');
+                                const triangle = container.querySelector('.triangle');
+                                const summary = container.querySelector('.summary');
+
+                                summary.addEventListener('click', () => {
+                                    container.classList.toggle('open');
+
+                                    if (container.classList.contains('open')) {
+                                        hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px'; // Expand dynamically
+                                        triangle.style.transform = 'rotate(0deg)';
+                                    } else {
+                                        hiddenContent.style.maxHeight = '0';
+                                        triangle.style.transform = 'rotate(-90deg)';
+                                    }
+                                });
+
+                                hiddenContent.addEventListener('click', (event) => {
+                                    event.stopPropagation();
+                                });
                             });
-                        
-                            hiddenContent.addEventListener('click', (event) => {
-                                event.stopPropagation();
-                            });
+
                         </script>
                     
                         <style>
