@@ -164,31 +164,31 @@
                     <!-- advanced features -->
                     
                     <div class="advanced_settings">
-                        <div class="container">
-                            <div class="summary">
-                                <div class="triangle"></div>
-                                <p>advanced settings</p>
-                                
-                            </div>
-                            <div class="hidden">
-                                <div class="length">
-                                    <p>approximate duration</p>
-                                    <input type="text" name="time" id="">
-                                </div>
-                                <div class="divider_horizontal"></div>
-                                <div class="style_document">
-                                    <div class="length">
-                                        <p>style document</p>
-                                        <div class="PDF_uplpader_style"><div class="drop-area" id="drop-area">
-                                            <p>Drag & Drop your files here</p>
-                                            <input type="file" id="fileInput" multiple>
-                                            <label for="fileInput" class="upload-label">📎</label>
-                                          </div>
-                                          <div id="file-list"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="container">
+                          <div class="summary">
+                              <div class="triangle"></div>
+                              <p>advanced settings</p>
+                              
+                          </div>
+                          <div class="hidden">
+                              <div class="length">
+                                  <p>approximate duration</p>
+                                  <input type="text" name="time" id="">
+                              </div>
+                              <div class="divider_horizontal"></div>
+                              <div class="style_document">
+                                  <div class="length">
+                                      <p>style document</p>
+                                      <div class="PDF_uplpader_style"><div class="drop-area" id="drop-area">
+                                          <p>Drag & Drop your files here</p>
+                                          <input type="file" id="fileInput" multiple>
+                                          <label for="fileInput" class="upload-label">📎</label>
+                                        </div>
+                                        <div id="file-list"></div></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                         <main>
                             <button id = "generateButton" onclick="loading()">generate</button>
                         </main>
@@ -216,6 +216,9 @@
 
                                     if (container.classList.contains('open')) {
                                         hiddenContent.style.maxHeight = hiddenContent.scrollHeight + 'px'; // Expand dynamically
+                                        //hiddenContent.style.margin = 120 + 'px'; // Expand dynamically
+                                        hiddenContent.style.padding = 120 + 'px'; // Expand dynamically
+
                                         triangle.style.transform = 'rotate(0deg)';
                                     } else {
                                         hiddenContent.style.maxHeight = '0';
